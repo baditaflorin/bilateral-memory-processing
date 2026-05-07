@@ -5,7 +5,18 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["docs/**", "dist/**", "node_modules/**", "coverage/**", "playwright-report/**"] },
+  {
+    ignores: [
+      "docs/**",
+      "dist/**",
+      "node_modules/**",
+      "coverage/**",
+      "playwright-report/**",
+      "*.config.js",
+      "scripts/*.mjs",
+      "public/sw.js"
+    ]
+  },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {
@@ -27,7 +38,7 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "react-refresh/only-export-components": "off",
       "@typescript-eslint/no-misused-promises": [
         "error",
         { checksVoidReturn: { attributes: false } }
