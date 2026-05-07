@@ -11,11 +11,18 @@ python3 -m http.server 4173 --directory tmp/pages-preview >/tmp/bilateral-memory
 server_pid=$!
 trap 'kill "$server_pid" >/dev/null 2>&1 || true' EXIT
 
+ready=0
 for _ in {1..40}; do
   if curl -fsS "http://127.0.0.1:4173/bilateral-memory-processing/" >/dev/null; then
+    ready=1
     break
   fi
   sleep 0.25
 done
+
+if [[ "$ready" -ne 1 ]]; then
+  echo "Pages preview did not become ready" >&2
+  exit 1
+fi
 
 PLAYWRIGHT_BASE_URL="http://127.0.0.1:4173/bilateral-memory-processing/" npx playwright test

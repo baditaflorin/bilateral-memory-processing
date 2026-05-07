@@ -39,7 +39,10 @@ fmt: ## autoformat
 	npm run fmt
 
 pages-preview: ## serve docs/ locally as GitHub Pages would
-	python3 -m http.server 4173 --directory docs
+	rm -rf tmp/pages-preview
+	mkdir -p tmp/pages-preview/bilateral-memory-processing
+	cp -R docs/. tmp/pages-preview/bilateral-memory-processing/
+	python3 -m http.server 4173 --directory tmp/pages-preview
 
 release: ## create a semver tag after local checks
 	make test

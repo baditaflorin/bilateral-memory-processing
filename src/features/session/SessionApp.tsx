@@ -27,7 +27,13 @@ import {
 import { APP_VERSION, COMMIT_SHA, LIVE_URL, PAYPAL_URL, REPOSITORY_URL } from "../../shared/meta";
 import { useToast } from "../../shared/toast";
 import { assessPace, formatDuration } from "./sessionLogic";
-import type { DistressRating, Guidance, SessionEvent, SessionPhase, ToneSettings } from "./sessionTypes";
+import type {
+  DistressRating,
+  Guidance,
+  SessionEvent,
+  SessionPhase,
+  ToneSettings
+} from "./sessionTypes";
 import { ConsentPanel } from "./components/ConsentPanel";
 import { SavedSessionsPanel } from "./components/SavedSessionsPanel";
 import { SessionTimeline } from "./components/SessionTimeline";
@@ -71,7 +77,9 @@ export function SessionApp() {
   const recordingStartedAt = useRef<number | null>(null);
 
   const canStart = consent.headphones && consent.privacy && consent.safety;
-  const sessionDuration = recording ? elapsedSeconds : (recordingResult?.durationSeconds ?? elapsedSeconds);
+  const sessionDuration = recording
+    ? elapsedSeconds
+    : (recordingResult?.durationSeconds ?? elapsedSeconds);
   const pauseCount = events.filter((event) => event.type === "pause").length;
   const metrics = useMemo(
     () =>
@@ -258,7 +266,10 @@ export function SessionApp() {
         [guidance.headline, guidance.body, ...guidance.prompts].join(". "),
         { allowSystemFallback: allowSystemSpeech }
       );
-      notify(source === "piper" ? "Piper is speaking locally." : "System speech fallback started.", "success");
+      notify(
+        source === "piper" ? "Piper is speaking locally." : "System speech fallback started.",
+        "success"
+      );
     } catch {
       notify("Piper voice guidance could not start in this browser.", "warning");
     }
@@ -570,7 +581,9 @@ export function SessionApp() {
           <SessionTimeline events={events} />
           <SavedSessionsPanel
             onClear={() => {
-              void clearSessions().then(() => queryClient.invalidateQueries({ queryKey: ["saved-sessions"] }));
+              void clearSessions().then(() =>
+                queryClient.invalidateQueries({ queryKey: ["saved-sessions"] })
+              );
             }}
             onDelete={(id) => {
               void deleteSession(id).then(() =>
@@ -586,13 +599,23 @@ export function SessionApp() {
             </p>
             <p className="mt-2">
               Source:{" "}
-              <a className="font-semibold text-tide" href={REPOSITORY_URL} rel="noreferrer" target="_blank">
+              <a
+                className="font-semibold text-tide"
+                href={REPOSITORY_URL}
+                rel="noreferrer"
+                target="_blank"
+              >
                 {REPOSITORY_URL}
               </a>
             </p>
             <p className="mt-2">
               Support:{" "}
-              <a className="font-semibold text-ember" href={PAYPAL_URL} rel="noreferrer" target="_blank">
+              <a
+                className="font-semibold text-ember"
+                href={PAYPAL_URL}
+                rel="noreferrer"
+                target="_blank"
+              >
                 {PAYPAL_URL}
               </a>
             </p>

@@ -23,14 +23,18 @@ export function SavedSessionsPanel({ sessions, onDelete, onClear }: SavedSession
         </button>
       </div>
       {sessions.length === 0 ? (
-        <p className="mt-3 text-sm leading-6 text-ink/60">Nothing has been saved in this browser.</p>
+        <p className="mt-3 text-sm leading-6 text-ink/60">
+          Nothing has been saved in this browser.
+        </p>
       ) : (
         <ol className="mt-3 grid gap-2">
           {sessions.map((session) => (
             <li className="rounded-lg border border-ink/10 p-3" key={session.id}>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-sm font-semibold">{session.guidance?.headline ?? "Session note"}</p>
+                  <p className="text-sm font-semibold">
+                    {session.guidance?.headline ?? "Session note"}
+                  </p>
                   <p className="mt-1 text-xs text-ink/55">
                     {new Date(session.createdAt).toLocaleString()} ·{" "}
                     {formatDuration(session.durationSeconds)}

@@ -12,6 +12,7 @@ export default tseslint.config(
       "node_modules/**",
       "coverage/**",
       "playwright-report/**",
+      "tmp/**",
       "*.config.js",
       "scripts/*.mjs",
       "public/sw.js"

@@ -31,7 +31,7 @@ const api: TranscriptionWorkerApi = {
     });
 
     return {
-      text: typeof response === "string" ? response : response.text?.trim() ?? "",
+      text: typeof response === "string" ? response : (response.text?.trim() ?? ""),
       model: "onnx-community/whisper-tiny.en"
     };
   }
@@ -44,7 +44,11 @@ async function getPipeline() {
         allowLocalModels?: boolean;
         allowRemoteModels?: boolean;
       };
-      pipeline: (task: string, model: string, options?: Record<string, unknown>) => Promise<unknown>;
+      pipeline: (
+        task: string,
+        model: string,
+        options?: Record<string, unknown>
+      ) => Promise<unknown>;
     };
 
     if (transformers.env) {

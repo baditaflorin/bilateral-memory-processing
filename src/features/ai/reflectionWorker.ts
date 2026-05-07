@@ -26,10 +26,15 @@ async function tryWebLlm(input: ReflectionInput): Promise<ReflectionResult | nul
 
   try {
     const webLlm = (await import("@mlc-ai/web-llm")) as unknown as {
-      CreateMLCEngine?: (model: string, options?: unknown) => Promise<{
+      CreateMLCEngine?: (
+        model: string,
+        options?: unknown
+      ) => Promise<{
         chat: {
           completions: {
-            create: (payload: unknown) => Promise<{ choices?: Array<{ message?: { content?: string } }> }>;
+            create: (
+              payload: unknown
+            ) => Promise<{ choices?: Array<{ message?: { content?: string } }> }>;
           };
         };
       }>;

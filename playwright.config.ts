@@ -9,7 +9,8 @@ export default defineConfig({
   fullyParallel: true,
   reporter: [["list"]],
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173/bilateral-memory-processing/",
+    baseURL:
+      process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173/bilateral-memory-processing/",
     trace: "retain-on-failure"
   },
   projects: [

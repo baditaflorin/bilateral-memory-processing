@@ -12,6 +12,4 @@ const generatedPaths = [
   "docs/worker"
 ];
 
-await Promise.all(
-  generatedPaths.map((path) => rm(path, { recursive: true, force: true }))
-);
+await Promise.all(generatedPaths.map((path) => rm(path, { recursive: true, force: true })));
