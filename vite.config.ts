@@ -4,7 +4,9 @@ import { readFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
-const packageJson = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8")) as {
+const packageJson = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf8")
+) as {
   version: string;
 };
 
@@ -54,7 +56,8 @@ export default defineConfig(({ mode }) => ({
   test: {
     environment: "jsdom",
     globals: true,
-    setupFiles: "./tests/setup.ts"
+    setupFiles: "./tests/setup.ts",
+    exclude: ["tests/e2e/**", "node_modules/**", "docs/**", "dist/**"]
   },
   worker: {
     format: "es"

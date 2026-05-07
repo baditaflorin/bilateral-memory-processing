@@ -3,7 +3,11 @@ set -euo pipefail
 
 npm run build
 
-python3 -m http.server 4173 --directory docs >/tmp/bilateral-memory-processing-smoke.log 2>&1 &
+rm -rf tmp/pages-preview
+mkdir -p tmp/pages-preview/bilateral-memory-processing
+cp -R docs/. tmp/pages-preview/bilateral-memory-processing/
+
+python3 -m http.server 4173 --directory tmp/pages-preview >/tmp/bilateral-memory-processing-smoke.log 2>&1 &
 server_pid=$!
 trap 'kill "$server_pid" >/dev/null 2>&1 || true' EXIT
 

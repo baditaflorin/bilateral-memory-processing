@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+make test
+make build
+make smoke
+
+test -s docs/index.html
+grep -q '<div id="root">' docs/index.html
