@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Bilateral Memory Processing icon">
+  <rect width="512" height="512" rx="56" fill="#f6f1e8"/>
+  <circle cx="158" cy="256" r="82" fill="#087f8c"/>
+  <circle cx="354" cy="256" r="82" fill="#b45432"/>
+  <path d="M158 256c48-72 148-72 196 0" fill="none" stroke="#14213d" stroke-width="28" stroke-linecap="round"/>
+  <path d="M158 256c48 72 148 72 196 0" fill="none" stroke="#596b45" stroke-width="28" stroke-linecap="round"/>
+</svg>
