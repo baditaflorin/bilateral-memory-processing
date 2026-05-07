@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => ({
   ],
   build: {
     outDir: "docs",
-    emptyOutDir: true,
+    emptyOutDir: false,
     sourcemap: false,
     rollupOptions: {
       output: {
