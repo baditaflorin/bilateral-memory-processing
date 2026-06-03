@@ -1,24 +1,4 @@
 {
-  "name": "bilateral-memory-processing",
-  "version": "0.1.0",
-  "description": "Private browser-based EMDR-inspired audio journaling with local transcription, reflection prompts, and no trauma uploads.",
-  "type": "module",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/baditaflorin/bilateral-memory-processing.git"
-  },
-  "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b && node scripts/clean-pages.mjs && vite build && node scripts/copy-404.mjs",
-    "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run",
-    "lint": "eslint . --max-warnings=0",
-    "fmt": "prettier --write .",
-    "fmt:check": "prettier --check .",
-    "smoke": "bash scripts/smoke.sh",
-    "audit": "npm audit --audit-level=high"
-  },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",
     "@mlc-ai/web-llm": "^0.2.83",
@@ -32,6 +12,7 @@
     "react-dom": "^19.1.1",
     "zod": "^4.1.12"
   },
+  "description": "Private browser-based EMDR-inspired audio journaling with local transcription, reflection prompts, and no trauma uploads.",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
     "@playwright/test": "^1.56.1",
@@ -55,6 +36,26 @@
     "typescript-eslint": "^8.46.2",
     "vite": "^7.1.12",
     "vite-plugin-static-copy": "^3.1.4",
-    "vitest": "^3.2.4"
-  }
+    "vitest": "4.1.0"
+  },
+  "license": "MIT",
+  "name": "bilateral-memory-processing",
+  "overrides": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baditaflorin/bilateral-memory-processing.git"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b \u0026\u0026 node scripts/clean-pages.mjs \u0026\u0026 vite build \u0026\u0026 node scripts/copy-404.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "lint": "eslint . --max-warnings=0",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "smoke": "bash scripts/smoke.sh",
+    "audit": "npm audit --audit-level=high"
+  },
+  "type": "module",
+  "version": "0.1.0"
 }
